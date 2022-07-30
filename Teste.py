@@ -1,21 +1,41 @@
 
 
-class Pessoa:
-    def __init__(self,*filhos, nome = None, idade = 37):
-        self.nome = nome
-        self.idade = idade
-        self.filhos = list()
 
 
+class Motor:
+    def __init__(self):
+        self.velocidade = 1
 
-gustavo = Pessoa(nome = 'Gustavo')
-gabriel = Pessoa(gustavo,nome = 'Gabriel')
-gabriel.sobrenome = 'Vieira'
+    def acelerar(self):
+        self.velocidade += 1
+        print(f'O carro está {self.velocidade} por hora')
 
-del gabriel.sobrenome
+    def frear(self):
+        self.velocidade -= 1
+        if self.velocidade >=1:
+            print(f'O carro está {self.velocidade} por hora')
+        else:
+            print(f'O carro já está parado!')
+            self.velocidade = 0
+NORTE = 'Norte'
+SUL = 'Sul'
+LESTE = 'Leste'
+OESTE = 'Oeste'
 
-print(gabriel.__dict__)
+
+class Direcao():
+    rotacao_a_direita_dict = {NORTE:LESTE,LESTE:SUL,SUL:OESTE,OESTE:NORTE}
+    rotacao_a_esquerda_dict = {NORTE:OESTE,OESTE:SUL,SUL:LESTE,LESTE:NORTE}
+    def __init__(self):
+        self.valor = NORTE
+    def girar_a_direita(self):
+        self.valor = self.rotacao_a_direita_dict[self.valor]
+        print(f'À direita, o carro está indo em direção: {self.valor}')
+
+    def girar_a_esquerda(self):
+        self.valor = self.rotacao_a_esquerda_dict[self.valor]
 
 
+        print(f'À esquerda, o carro está indo em direção: {self.valor}')
 
 

@@ -1,0 +1,1 @@
+# Quando selecionar o texto e apertar (control + shift + u)  ele altera tudo para caixa baixa ou caixa alta
